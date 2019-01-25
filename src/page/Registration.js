@@ -97,10 +97,7 @@ class Registration extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.container} noValidate autoComplete="off">
-
-
-       
+      <form className={classes.container} noValidate autoComplete="off">     
      
 <div className={classes.root}>
 <Paper className={classes.paper}>
@@ -118,13 +115,7 @@ class Registration extends React.Component {
           variant="outlined"
         />
      
-       
-       
 
-
-
-
-      
         <TextField
           id="outlined-email-input"
           label="Email"
@@ -148,9 +139,8 @@ class Registration extends React.Component {
 
 
 <Button variant="contained" color="primary" className={classes.button}>
-  Button
+  Submit
 </Button>
-
 
 </Grid>
   </Grid>
