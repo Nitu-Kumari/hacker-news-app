@@ -77,7 +77,7 @@ const currencies = [
   },
 ];
 
-class Registration extends React.Component {
+class Login extends React.Component {
   state = {
     username: '',
     password: '',
@@ -143,11 +143,11 @@ class Registration extends React.Component {
   }
 }
 
-Registration.propTypes = {
+Login.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
 
 
-export default withStyles(styles)(Registration);
+export default withStyles(styles)(Login);
