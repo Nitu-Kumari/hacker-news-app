@@ -1,7 +1,10 @@
 import React from 'react';
-
+import classNames from 'classnames';
 import { makeStyles } from '@material-ui/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import { Form, Field } from 'react-final-form'
+
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -22,19 +25,20 @@ const useStyles = makeStyles(theme => ({
 
 
 
-function Registration() {
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    name: 'Cat in the Hat',
-    asername: '',
-    multiline: 'Controlled',
-  });
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
-  };
+class Registration extends React.Component{
 
-  return (
-    <form className={classes.container} noValidate autoComplete="off">
+  onSubmit = async (values) => {
+ 
+    }
+   required = value => (value ? undefined : "Required")
+ 
+   render(){
+     return (
+ <Form
+       onSubmit={this.onSubmit}
+       render={({ handleSubmit, pristine, invalid,submitting,values,handleChange,classes,Registration}) => (
+         <form onSubmit={handleSubmit}>
+
       <TextField
         id="outlined-name"
         label="Name"
@@ -44,10 +48,22 @@ function Registration() {
         margin="normal"
         variant="outlined"
       />
-      
+    
+      <TextField
+        id="outlined-bare"
+        className={classes.textField}
+        defaultValue="Bare"
+        margin="normal"
+        variant="outlined"
       />
     </form>
-  );
+ 
+    
+)}
+/>
+
+);
 }
+}      
 
 export default Registration;
