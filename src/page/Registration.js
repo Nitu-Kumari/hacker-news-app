@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import { Form, Field } from 'react-final-form'
+import { withStyles } from '../../node_modules/@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,6 +22,17 @@ const useStyles = makeStyles(theme => ({
     width: 200,
   },
 }));
+
+
+
+function Registration() {
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    name: 'Cat in the Hat',
+    age: '',
+    multiline: 'Controlled',
+  });
+
 
 
 
@@ -66,4 +77,4 @@ class Registration extends React.Component{
 }
 }      
 
-export default Registration;
+export default withStyles(styles)(Registration);
