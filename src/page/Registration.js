@@ -34,21 +34,13 @@ function Registration() {
   });
 
 
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
 
+  return (
+    <form className={classes.container} noValidate autoComplete="off">
 
-class Registration extends React.Component{
-
-  onSubmit = async (values) => {
- 
-    }
-   required = value => (value ? undefined : "Required")
- 
-   render(){
-     return (
- <Form
-       onSubmit={this.onSubmit}
-       render={({ handleSubmit, pristine, invalid,submitting,values,handleChange,classes,Registration}) => (
-         <form onSubmit={handleSubmit}>
 
       <TextField
         id="outlined-name"
@@ -70,11 +62,9 @@ class Registration extends React.Component{
     </form>
  
     
-)}
-/>
 
 );
-}
+
 }      
 
 export default withStyles(styles)(Registration);
