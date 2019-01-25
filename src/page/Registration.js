@@ -104,18 +104,10 @@ class Registration extends React.Component {
      
 <div className={classes.root}>
 <Paper className={classes.paper}>
-        <Grid container wrap="col" spacing={10}>
-          
-          <Grid item xs zeroMinWidth>
-            <Typography noWrap>{message}</Typography>
-          </Grid>
-        </Grid>
-
-
-
-
-
-      <TextField
+ <Grid container wrap="col" spacing={10}>
+ <Grid item xs zeroMinWidth>
+        
+<TextField
           id="outlined-username-input"
           label="Username"
           className={classes.textField}
@@ -125,6 +117,14 @@ class Registration extends React.Component {
           margin="normal"
           variant="outlined"
         />
+     
+       
+       
+
+
+
+
+      
         <TextField
           id="outlined-email-input"
           label="Email"
@@ -152,9 +152,11 @@ class Registration extends React.Component {
 </Button>
 
 
-
-      </div>
-     </form>
+</Grid>
+  </Grid>
+   </Paper>
+  </div>
+  </form>
       
       
     );
