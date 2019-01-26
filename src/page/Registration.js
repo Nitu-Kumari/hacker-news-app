@@ -76,87 +76,115 @@ const currencies = [
   },
 ];
 
-class Registration extends React.Component {
-  state = {
-    email: '',
-    username: '',
-    password: '',
+ 
+  class Registration extends React.Component {
+   
+    state = {
+      username: '',
+      email:'',
+      password: '',
+  
+  
+    };
+  
+    handleChange = name => event => {
+      this.setState({
+        [name]: event.target.value,
+      });
+    };
+    onSubmit=async (event)=>{
+      try{
+       event.preventDefault();
+       const user=this.state;
+       if(!user.username){
+         return this.setState
+       }
 
-    
-
-  };
-
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <form className={classes.container} noValidate autoComplete="off">     
-     
-<div className={classes.root}>
-<Paper className={classes.paper}>
- <Grid container wrap="col" spacing={10}>
- <Grid item xs zeroMinWidth>
-        
-<TextField
-          id="outlined-username-input"
-          label="Username"
-          className={classes.textField}
-          type="username"
-          name="username"
-          autoComplete="username"
-          margin="normal"
-          variant="outlined"
-        />
-     
-
-        <TextField
-          id="outlined-email-input"
-          label="Email"
-          className={classes.textField}
-          type="email"
-          name="email"
-          autoComplete="email"
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-password-input"
-          label="Password"
-          className={classes.textField}
-          type="password"
-          autoComplete="current-password"
-          margin="normal"
-          variant="outlined"
-        />
-
-
-
-<Button variant="contained" color="primary" className={classes.button}>
-  Submit
-</Button>
-
-</Grid>
-  </Grid>
-   </Paper>
-  </div>
-  </form>
-      
-      
-    );
-  }
+//make api call
+const response=await fetch(`http://localhost:5000/registration`,{
+  method:"POST",//
+  headers:{
+     'Content-Type': 'application/json' 
+  },
+body:JSON.stringify(user),
+  });
+  const userObj=await response.JSON();
+  alert(JSON.stringify(userObj));
+}catch(err){
+  console.log(err);
 }
 
-Registration.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+}
+
+     
+
+  
 
 
-
-
-export default withStyles(styles)(Registration);
+    
+    render() {
+      const { classes } = this.props;
+  
+      return (
+    <form className={classes.container} noValidate autoComplete="off">       
+  <div className={classes.root}>
+  <Paper className={classes.paper}>
+   <Grid container wrap="col" spacing={10}>
+   <Grid item xs zeroMinWidth>
+     
+  <TextField
+            id="outlined-username-input"
+            label="Username"
+            className={classes.textField}
+            type="username"
+            name="username"
+            autoComplete="username"
+            margin="normal"
+            variant="outlined"
+          />
+       
+  
+          <TextField
+            id="outlined-email-input"
+            label="Email"
+            className={classes.textField}
+            type="email"
+            name="email"
+            autoComplete="email"
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            id="outlined-password-input"
+            label="Password"
+            className={classes.textField}
+            type="password"
+            autoComplete="current-password"
+            margin="normal"
+            variant="outlined"
+          />
+  
+  
+  <Button color="Submit" onClick={this.onSubmit}>
+    Submit
+</Button>
+  
+  </Grid>
+    </Grid>
+     </Paper>
+    </div>
+    </form>
+        
+        
+      );
+    }
+  }
+  
+  Registration.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+  
+  
+  
+  export default withStyles(styles)(Registration);

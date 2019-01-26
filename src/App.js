@@ -8,6 +8,7 @@ import History from './page/History.js';
 
 
 
+
 class App extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class App extends Component {
       <Route path='/Registration' component={Registration}/>
       <Route path='/Result' component={Result}/>
       <Route path='/History' component={History}/>
+
 
 
 

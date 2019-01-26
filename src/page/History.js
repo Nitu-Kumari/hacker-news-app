@@ -111,6 +111,7 @@ class History extends React.Component {
             ))}
           </Select>
         </Paper>
+        
         <Paper className={classes.Paper}>
           <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
           <Select
