@@ -10,6 +10,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
+import Paper from '@material-ui/core/Paper';
+
 
 const styles = theme => ({
   root: {
@@ -93,7 +95,7 @@ class History extends React.Component {
 
     return (
       <div className={classes.root}>
-        <FormControl className={classes.formControl}>
+        <Paper className={classes.Paper}>
           <InputLabel htmlFor="select-multiple">Name</InputLabel>
           <Select
             multiple
@@ -108,8 +110,8 @@ class History extends React.Component {
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
+        </Paper>
+        <Paper className={classes.Paper}>
           <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
           <Select
             multiple
@@ -126,31 +128,11 @@ class History extends React.Component {
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="select-multiple-chip">Chip</InputLabel>
-          <Select
-            multiple
-            value={this.state.name}
-            onChange={this.handleChange}
-            input={<Input id="select-multiple-chip" />}
-            renderValue={selected => (
-              <div className={classes.chips}>
-                {selected.map(value => (
-                  <Chip key={value} label={value} className={classes.chip} />
-                ))}
-              </div>
-            )}
-            MenuProps={MenuProps}
-          >
-            {names.map(name => (
-              <MenuItem key={name} value={name} style={getStyles(name, this)}>
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <FormControl className={classNames(classes.formControl, classes.noLabel)}>
+        </Paper>
+        
+
+
+        <Paper className={classNames(classes.Paper, classes.noLabel)}>
           <Select
             multiple
             displayEmpty
@@ -175,27 +157,8 @@ class History extends React.Component {
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <InputLabel shrink htmlFor="select-multiple-native">
-            Native
-          </InputLabel>
-          <Select
-            multiple
-            native
-            value={this.state.name}
-            onChange={this.handleChangeMultiple}
-            inputProps={{
-              id: 'select-multiple-native',
-            }}
-          >
-            {names.map(name => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
+          </Paper>
+        
       </div>
     );
   }

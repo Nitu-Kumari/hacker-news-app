@@ -150,10 +150,6 @@ class Result extends React.Component {
           </IconButton>
           <p>Notifications</p>
         </MenuItem>
-        
-
-
-
       </Menu>
     );
 
@@ -161,9 +157,7 @@ class Result extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
+          
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
               Hacker-news
             </Typography>
@@ -180,8 +174,6 @@ class Result extends React.Component {
               />
             </div>
             <div className={classes.grow} />
-
-           
             <div className={classes.sectionMobile}>
               <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
                 <MoreIcon />
