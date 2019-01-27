@@ -86,12 +86,27 @@ const currencies = [
   
   
     };
-  
+
+    handleUserName=(event)=>{
+      this.setState({userName:event.target.value})
+    }
+
+    handleEmail=(event)=>{
+      this.setState({email:event.target.value})
+    }
+    handlePassword=(event)=>{
+      this.setState({password:event.target.value})
+    }
+
+
     handleChange = name => event => {
       this.setState({
         [name]: event.target.value,
       });
     };
+
+
+    
     onSubmit=async (event)=>{
       try{
        event.preventDefault();
@@ -116,55 +131,54 @@ body:JSON.stringify(user),
 
 }
 
-     
-
   
-
-
-    
     render() {
       const { classes } = this.props;
   
       return (
-    <form className={classes.container} noValidate autoComplete="off">       
+        <form className={classes.container} noValidate autoComplete="off">     
+       
   <div className={classes.root}>
   <Paper className={classes.paper}>
    <Grid container wrap="col" spacing={10}>
    <Grid item xs zeroMinWidth>
-     
-  <TextField
-            id="outlined-username-input"
-            label="Username"
-            className={classes.textField}
-            type="username"
-            name="username"
-            autoComplete="username"
-            margin="normal"
-            variant="outlined"
+          
+   <TextField value={this.state.username} onChange={this.handleuserName}
+          id="outlined-username-input"
+          label="username"
+          className={classes.textField}
+          type="username"
+          name="username"
+          autoComplete="username"
+          margin="normal"
+          variant="outlined"
+        />
+
+   <TextField value={this.state.email} onChange={this.handleEmail}
+          id="outlined-username-input"
+          label="email"
+          className={classes.textField}
+          type="email"
+          name="email"
+          autoComplete="email"
+          margin="normal"
+          variant="outlined"
           />
-       
-  
-          <TextField
-            id="outlined-email-input"
-            label="Email"
-            className={classes.textField}
-            type="email"
-            name="email"
-            autoComplete="email"
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-password-input"
-            label="Password"
-            className={classes.textField}
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-            variant="outlined"
-          />
-  
-  
+
+
+        <TextField value={this.state.password} onChange={this.handlePassword}
+          id="outlined-password-input"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          autoComplete="current-password"
+          margin="normal"
+          variant="outlined"
+        />
+
+        
+        
+          
   <Button color="Submit" onClick={this.onSubmit}>
     Submit
 </Button>
