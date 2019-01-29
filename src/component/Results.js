@@ -18,7 +18,7 @@ class Results extends React.Component {
       const {query, tags, page} = this.state;
     //make api call
     const response = await fetch(
-      `http://localhost:5000/search?query=${query}&tags=${tags}&page=${page}`,
+      `https://aqueous-anchorage-59480.herokuapp.com/search?query=${query}&tags=${tags}&page=${page}`,
       {
         method: "GET",
         headers: {

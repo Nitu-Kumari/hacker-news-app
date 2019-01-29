@@ -55,7 +55,7 @@ class Registration extends React.Component {
 
   onSubmit = async values => {
     //make api call
-    const response = await fetch(`http://localhost:5000/users`, {
+    const response = await fetch(`https://aqueous-anchorage-59480.herokuapp.com/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

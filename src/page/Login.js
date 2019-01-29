@@ -60,7 +60,7 @@ class Login extends React.Component {
   onSubmit = async values => {
     console.log("user ", values);
     //make api call
-    const response = await fetch(`http://localhost:5000/auth`, {
+    const response = await fetch(`https://aqueous-anchorage-59480.herokuapp.com/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
