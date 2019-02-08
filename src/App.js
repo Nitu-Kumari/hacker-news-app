@@ -6,12 +6,19 @@ import Registration from './page/Registration.js';
 import Search from './page/Search.js';
 import History from './page/History.js';
 import PrivateRoute from './PrivateRoute';
+import {Provider} from 'react-redux';
+import{createStore,applyMiddleware} from 'redux';
 
 
+const  store=createStore(()=>[],{},applyMiddleware());
 
 class App extends Component {
   render() {
     return (
+
+
+      <Provider store={store}>
+
       <div className="App"> 
       <Route exact path='/' component={Login}/>
       <Route exact path='/login' component={Login}/>
@@ -19,6 +26,8 @@ class App extends Component {
       <Route exact path='/search' component={Search}/>
       <Route exact path='/history' component={History}/>
    </div>
+
+   </Provider>
     );
   }
 }

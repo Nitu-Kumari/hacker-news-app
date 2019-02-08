@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Result from "../component/Result";
 import Grid from "@material-ui/core/Grid";
+import {connect} from "react-redux";
+
+import {fetchResults} from "../actions/resultsAction";
+
+
+
+
 
 const styles = theme => ({});
 
@@ -16,18 +23,8 @@ class Results extends React.Component {
 
   searchNews = async () => {
       const {query, tags, page} = this.state;
-    //make api call
-    const response = await fetch(
-      `https://aqueous-anchorage-59480.herokuapp.com/search?query=${query}&tags=${tags}&page=${page}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
-    const data = await response.json();
 
+    
     const results = data.hits.map(res => ({
       title: res.title,
       url: res.url,
@@ -62,5 +59,8 @@ Results.propTypes = {
   classes: PropTypes.object.isRequired,
   query: PropTypes.string.isRequired
 };
+const mapStateToProps=state=>({
+  results:state.results.items
+})
 
-export default withStyles(styles)(Results);
+export default connect (mapStateToProps,{fetchResults})(Results);
